@@ -1,0 +1,81 @@
+{
+    "cn": [
+        {
+            "avatar": "1f978",
+            "name": "智能问答",
+            "context": [
+                {
+                    "id": "writer-0",
+                    "role": "user",
+                    "content": "我现在开始会问你一些问题，你根据你所知的知识回答我，我的问题是：",
+                    "date": ""
+                }
+            ],
+            "modelConfig": {
+                "model": "zhongyiAi",
+                "temperature": 1,
+                "max_tokens": 2000,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "sendMemory": true,
+                "historyMessageCount": 4,
+                "compressMessageLengthThreshold": 1000
+            },
+            "lang": "cn",
+            "builtin": true,
+            "createdAt": 1688899480511
+        },
+        {
+            "avatar": "270d-fe0f",
+            "name": "诊断练习",
+            "context": [
+                {
+                    "id": "writer-0",
+                    "role": "user",
+                    "content": "我给你关键字，你发给我一些训练题目，我的关键字是：",
+                    "date": ""
+                }
+            ],
+            "modelConfig": {
+                "model": "zhongyiAi",
+                "temperature": 1,
+                "max_tokens": 2000,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "sendMemory": true,
+                "historyMessageCount": 4,
+                "compressMessageLengthThreshold": 1000
+            },
+            "lang": "cn",
+            "builtin": true,
+            "createdAt": 1688899480511
+        },
+        {
+            "avatar": "1f4da",
+            "name": "知识库",
+            "context": [
+                {
+                    "id": "writer-0",
+                    "role": "user",
+                    "content": "你整合一下中医诊断学资料，然后我会发给你关键词，你根据我的关键词发给我对应的一些中医诊断资料，我的第一个关键词是：",
+                    "date": ""
+                }
+            ],
+            "modelConfig": {
+                "model": "zhongyiAi",
+                "temperature": 1,
+                "max_tokens": 2000,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "sendMemory": true,
+                "historyMessageCount": 4,
+                "compressMessageLengthThreshold": 1000
+            },
+            "lang": "cn",
+            "builtin": true,
+            "createdAt": 1688899480511
+        }
+    ],
+    "tw": [],
+    "en": []
+}
