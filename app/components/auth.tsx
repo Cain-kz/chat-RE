@@ -14,6 +14,7 @@ import { getClientConfig } from "../config/client";
 import { PasswordInput } from "./ui-lib";
 import LeftIcon from "@/app/icons/left.svg";
 import { safeLocalStorage } from "@/app/utils";
+import apis from '@/app/services';
 import {
   trackSettingsPageGuideToCPaymentClick,
   trackAuthorizationPageButtonToCPaymentClick,
@@ -39,6 +40,22 @@ export function AuthPage() {
     // 请求登录接口
     const hashPwd = await hashPassword(accessStore.userPwd);
     console.log(accessStore.userName, hashPwd);
+    const parm = {
+      "createTime": "2023-10-10 11:11:11",
+      "remark": "",
+      "userId": accessStore.userName,
+      "userName": accessStore.userName,
+      "userPassword": hashPwd,
+      "userPhone": "",
+      "userType": ""
+    }
+    apis.common.userLogin(parm).then((res: { status: number; }) => {
+      if (res.status === 200) {
+        navigate(Path.Chat)
+      } else {
+      }
+    }
+    ).catch(() => { });
     // accessStore
     //   .login(accessStore.userName, accessStore.userPwd)
     //   .then((res) => {
@@ -128,7 +145,7 @@ export function AuthPage() {
               type="text"
               className={"password-input"}
               value={accessStore.userName}
-              placeholder={Locale.Settings.Access.User.UserName.Placeholder}
+              placeholder={Locale.Settings.Access.OpenAI.ApiKey.Placeholder}
               onChange={(e) => {
                 accessStore.update(
                   (access) => (access.userName = e.currentTarget.value),
@@ -139,10 +156,10 @@ export function AuthPage() {
           <PasswordInput
             style={{ marginTop: "3vh", marginBottom: "3vh" }}
             aria={Locale.Settings.ShowPassword}
-            aria-label={Locale.Settings.Access.User.Password.Placeholder}
+            aria-label={Locale.Settings.Access.OpenAI.ApiKey.Placeholder}
             value={accessStore.userPwd}
             type="text"
-            placeholder={Locale.Settings.Access.User.Password.Placeholder}
+            placeholder={Locale.Settings.Access.OpenAI.ApiKey.Placeholder}
             onChange={(e) => {
               accessStore.update(
                 (access) => (access.userPwd = e.currentTarget.value),
