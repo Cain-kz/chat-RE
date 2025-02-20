@@ -17,6 +17,8 @@ import {
   XAI_BASE_URL,
   CHATGLM_BASE_URL,
   SILICONFLOW_BASE_URL,
+  CHAT_NEW_TCM,
+  OpenaiPath,
 } from "../constant";
 import { getHeaders } from "../client/api";
 import { getClientConfig } from "../config/client";
@@ -32,6 +34,8 @@ const isApp = getClientConfig()?.buildMode === "export";
 const DEFAULT_OPENAI_URL = isApp ? OPENAI_BASE_URL : ApiPath.OpenAI;
 
 const DEFAULT_GOOGLE_URL = isApp ? GEMINI_BASE_URL : ApiPath.Google;
+
+const CHAT_NEW_TCMS = isApp ? CHAT_NEW_TCM : OpenaiPath.newTcmChat;
 
 const DEFAULT_ANTHROPIC_URL = isApp ? ANTHROPIC_BASE_URL : ApiPath.Anthropic;
 
@@ -69,6 +73,8 @@ const DEFAULT_ACCESS_STATE = {
   openaiUrl: DEFAULT_OPENAI_URL,
   openaiApiKey: "",
 
+  userId: "",
+
   // azure
   azureUrl: "",
   azureApiKey: "",
@@ -79,6 +85,12 @@ const DEFAULT_ACCESS_STATE = {
   googleApiKey: "",
   googleApiVersion: "v1",
   googleSafetySettings: GoogleSafetySettingsThreshold.BLOCK_ONLY_HIGH,
+
+  // google ai studio
+  newChatUrl: CHAT_NEW_TCMS,
+  newChatApiKey: "",
+  newChatApiVersion: "v3",
+  newChatSafetySettings: GoogleSafetySettingsThreshold.BLOCK_ONLY_HIGH,
 
   // user
   userName: "",
@@ -171,6 +183,10 @@ export const useAccessStore = createPersistStore(
 
     isValidOpenAI() {
       return ensure(get(), ["openaiApiKey"]);
+    },
+
+    isValidUserId() {
+      return ensure(get(), ["userId"]);
     },
 
     isValidAzure() {

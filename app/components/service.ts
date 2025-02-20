@@ -1,22 +1,23 @@
 import request from "@/app/utils/request";
+import { CHAT_NEW_TCM } from "../constant";
 
 
 export async function chatNewTCMchat(data: any) {
-    return request(`http://120.25.222.199:8095/ios/class/diagnosis/chat/newTCMchat`, {
+    return request(`${CHAT_NEW_TCM}/ios/class/diagnosis/chat/newTCMchat`, {
         method: 'POST',
         data
     });
 }
 
 export async function chatSearchTCMchat(data: any) {
-    return request(`http://120.25.222.199:8095/ios/class/diagnosis/chat/searchTCMchat
+    return request(`${CHAT_NEW_TCM}/ios/class/diagnosis/chat/searchTCMchat
 `, {
         method: 'POST',
         data
     });
 }
 export async function userLogin(data: any): Promise<any> {
-    return request(`http://120.25.222.199:8095/ios/class/diagnosis/user/lgin`, {
+    return request(`${CHAT_NEW_TCM}/ios/class/diagnosis/user/lgin`, {
       method: 'POST',
       data
     });

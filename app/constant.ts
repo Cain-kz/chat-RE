@@ -36,6 +36,8 @@ export const CHATGLM_BASE_URL = "https://open.bigmodel.cn";
 
 export const SILICONFLOW_BASE_URL = "https://api.siliconflow.cn";
 
+export const CHAT_NEW_TCM = "http://120.25.222.199:8095";
+
 export const CACHE_URL_PREFIX = "/api/cache";
 export const UPLOAD_URL = `${CACHE_URL_PREFIX}/upload`;
 
@@ -177,6 +179,7 @@ export const OpenaiPath = {
   UsagePath: "dashboard/billing/usage",
   SubsPath: "dashboard/billing/subscription",
   ListModelPath: "v1/models",
+  newTcmChat: '/ios/class/diagnosis/chat/newTCMchat'
 };
 
 export const Azure = {

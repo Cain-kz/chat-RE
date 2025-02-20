@@ -41,17 +41,23 @@ export function AuthPage() {
     const hashPwd = await hashPassword(accessStore.userPwd);
     console.log(accessStore.userName, hashPwd);
     const parm = {
-      "createTime": "2023-10-10 11:11:11",
+      "createTime": "",
       "remark": "",
       "userId": accessStore.userName,
       "userName": accessStore.userName,
-      "userPassword": hashPwd,
+      "userPassword": hashPwd,// 
       "userPhone": "",
       "userType": ""
     }
-    apis.common.userLogin(parm).then((res: { status: number; }) => {
-      if (res.status === 200) {
-        navigate(Path.Chat)
+    apis.common.userLogin(parm).then((res: any) => {
+      console.log(res)
+      if (res.code == 200) {
+        accessStore.update((access) => {
+          access.userName = res.data.userName;
+          access.userPwd = res.data.userPassword
+          access.userId = res.data.userId
+        });
+        navigate(Path.Home)
       } else {
       }
     }
