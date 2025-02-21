@@ -296,6 +296,7 @@ export class ChatGPTApi implements LLMApi {
     const shouldStream = !isDalle3 && !!options.config.stream;
     const controller = new AbortController();
     options.onController?.(controller);
+    const accessStore = useAccessStore();
     const msg = requestPayload.messages[requestPayload.messages.length - 1]
     const parmPayload = {
       "answer": "",
@@ -304,7 +305,7 @@ export class ChatGPTApi implements LLMApi {
       "orgQuestion": msg.content,
       "remark": "",
       "toDeepSeekQuestion": JSON.stringify(requestPayload),
-      "userId": msg.role
+      "userId": accessStore.userId
     }
     try {
       let chatPath = "";
